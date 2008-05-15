@@ -1,6 +1,7 @@
 #summary Securely Implement URMAH for Plug&Play User and Roles Management
+#labels Featured
 
-== Preventing Unauthorized Access ==
+= Preventing Unauthorized Access =
 
 _How to secure the user and role pages from unauthorized users_
 
