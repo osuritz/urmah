@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urmah", "Urmah\Urmah.csproj", "{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UrmahTest", "UrmahTest\", "{487F5870-BFA6-4AD3-ADE6-9F5C07B11F65}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "2.0"
+		ProjectReferences = "{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}|Urmah.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/UrmahTest"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\WebSites\UrmahTest\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\UrmahTest\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/UrmahTest"
+		Release.AspNetCompiler.PhysicalPath = "..\..\WebSites\UrmahTest\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\UrmahTest\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "61764"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}.Release|.NET.ActiveCfg = Release|Any CPU
+		{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B7A491EE-4414-47B5-B72D-B81FEDDD1C15}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{487F5870-BFA6-4AD3-ADE6-9F5C07B11F65}.Debug|.NET.ActiveCfg = Debug|.NET
+		{487F5870-BFA6-4AD3-ADE6-9F5C07B11F65}.Debug|.NET.Build.0 = Debug|.NET
+		{487F5870-BFA6-4AD3-ADE6-9F5C07B11F65}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{487F5870-BFA6-4AD3-ADE6-9F5C07B11F65}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{487F5870-BFA6-4AD3-ADE6-9F5C07B11F65}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{487F5870-BFA6-4AD3-ADE6-9F5C07B11F65}.Release|.NET.ActiveCfg = Debug|.NET
+		{487F5870-BFA6-4AD3-ADE6-9F5C07B11F65}.Release|.NET.Build.0 = Debug|.NET
+		{487F5870-BFA6-4AD3-ADE6-9F5C07B11F65}.Release|Any CPU.ActiveCfg = Debug|.NET
+		{487F5870-BFA6-4AD3-ADE6-9F5C07B11F65}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
+		{487F5870-BFA6-4AD3-ADE6-9F5C07B11F65}.Release|Mixed Platforms.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

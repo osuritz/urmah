@@ -1,0 +1,7 @@
+C:\Users\olivier\Documents\Visual Studio 2008\Projects\Urmah\Urmah\bin\Debug\Urmah.dll
+C:\Users\olivier\Documents\Visual Studio 2008\Projects\Urmah\Urmah\bin\Debug\Urmah.pdb
+C:\Users\olivier\Documents\Visual Studio 2008\Projects\Urmah\Urmah\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\olivier\Documents\Visual Studio 2008\Projects\Urmah\Urmah\obj\Debug\Urmah.dll
+C:\Users\olivier\Documents\Visual Studio 2008\Projects\Urmah\Urmah\obj\Debug\Urmah.pdb
+C:\Users\olivier\Documents\Visual Studio 2008\Projects\Urmah\Urmah\obj\Debug\Urmah.Resources.Resource.resources
+C:\Users\olivier\Documents\Visual Studio 2008\Projects\Urmah\Urmah\obj\Debug\Urmah.csproj.GenerateResource.Cache
