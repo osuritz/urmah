@@ -1,8 +1,0 @@
-#summary Securely Implement URMAH for Plug&Play User and Roles Management
-#labels Featured
-
-= Preventing Unauthorized Access =
-
-_How to secure the user and role pages from unauthorized users_
-
-The simplest way to easily secure access to the URMAH facility to follow this guide: [http://haacked.com/archive/2007/07/24/securely-implement-elmah-for-plug-and-play-error-logging.aspx Securely Implement ELMAH For Plug And Play Error Logging], changing to Urmah where appropriate.
