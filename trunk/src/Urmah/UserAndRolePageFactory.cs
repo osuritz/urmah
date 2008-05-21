@@ -37,13 +37,10 @@ namespace Urmah
                     return new ManifestResourceHandler("Urmah.Resources.GenericIcons.png", "image/png");
                 
                 case "users":
-                    return UserPageFactory.GetPage(args);                
+                    return UserPageFactory.GetHandler(args);                
 
                 case "roles":
-                    return null;
-
-                //case "test":
-                //    throw new TestException();
+                    return RolePageFactory.GetHandler(args);
 
                 case "about":
                     return new AboutPage();

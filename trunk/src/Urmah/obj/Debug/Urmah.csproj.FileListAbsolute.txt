@@ -5,3 +5,10 @@ C:\Users\olivier\Documents\Visual Studio 2008\Projects\Urmah\Urmah\obj\Debug\Urm
 C:\Users\olivier\Documents\Visual Studio 2008\Projects\Urmah\Urmah\obj\Debug\Urmah.pdb
 C:\Users\olivier\Documents\Visual Studio 2008\Projects\Urmah\Urmah\obj\Debug\Urmah.Resources.Resource.resources
 C:\Users\olivier\Documents\Visual Studio 2008\Projects\Urmah\Urmah\obj\Debug\Urmah.csproj.GenerateResource.Cache
+D:\Urmah\src\Urmah\bin\Debug\Urmah.dll
+D:\Urmah\src\Urmah\bin\Debug\Urmah.pdb
+D:\Urmah\src\Urmah\obj\Debug\ResolveAssemblyReference.cache
+D:\Urmah\src\Urmah\obj\Debug\Urmah.Resources.Resource.resources
+D:\Urmah\src\Urmah\obj\Debug\Urmah.csproj.GenerateResource.Cache
+D:\Urmah\src\Urmah\obj\Debug\Urmah.dll
+D:\Urmah\src\Urmah\obj\Debug\Urmah.pdb

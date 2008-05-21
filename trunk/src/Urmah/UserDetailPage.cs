@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Web.Security;
+using System.Web.Profile;
+using System.Reflection;
 
 using CultureInfo = System.Globalization.CultureInfo;
 using TextResource = Urmah.Resources.Resource;
@@ -28,6 +31,22 @@ namespace Urmah
                     _user = Membership.GetUser(Username);
                 }
                 return _user;
+            }
+        }
+
+        protected override string ContentTitleFormatString
+        {
+            get
+            {
+                return TextResource.UserDetailTitleFormatString;
+            }
+        }
+
+        protected override string TitleString
+        {
+            get
+            {
+                return string.Format(ContentTitleFormatString, RequestedUser.UserName, RequestedUser.Email);
             }
         }
 
@@ -66,20 +85,6 @@ namespace Urmah
             base.RenderContents(writer);
         }
 
-        private void RenderTitle(HtmlTextWriter writer)
-        {
-            writer.AddAttribute(HtmlTextWriterAttribute.Id, "PageTitle");
-            writer.RenderBeginTag(HtmlTextWriterTag.H1);
-
-
-            writer.Write(TextResource.UserDetailTitleFormatString, RequestedUser.UserName, RequestedUser.Email);
-
-            //writer.AddAttribute(HtmlTextWriterAttribute.Title, this.Server.HtmlEncode(this.ApplicationName));
-
-            writer.RenderEndTag(); // </h1>
-            writer.WriteLine();
-        }
-
         private void RenderUser(HtmlTextWriter writer)
         {
             // Write out the page title containing user.
@@ -98,6 +103,11 @@ namespace Urmah
 
             RenderAccountInformation(writer);
 
+            if (ProfileManager.Enabled)
+            {
+                RenderProfile(writer);
+            }
+            
             if (Roles.Enabled)
             {
                 RenderRoles(writer);
@@ -159,7 +169,18 @@ namespace Urmah
 
             row = new TableRow();
             row.Cells.Add(FormatCell(new TableCell(), TextResource.UserDetailAccountIsLockedOutCaption, "field-caption"));
-            row.Cells.Add(FormatCell(new TableCell(), CapitalizeFirstLetter(RequestedUser.IsLockedOut ? TextResource.True : TextResource.False), "field-value"));
+            TableCell cell = new TableCell() { CssClass = "field-value" };
+            cell.Controls.Add(new LiteralControl(CapitalizeFirstLetter(RequestedUser.IsLockedOut ? TextResource.True : TextResource.False)));
+            if (RequestedUser.IsLockedOut)
+            {
+                cell.Controls.Add(new LiteralControl(" "));
+                cell.Controls.Add(new HyperLink()
+                {
+                    Text = TextResource.UserDetailUnlock,
+                    NavigateUrl = string.Format("do?id={0}&action=unlock", Username)
+                });                
+            }
+            row.Cells.Add(cell);
             accountTable.Rows.Add(row);
 
             row = new TableRow();
@@ -169,10 +190,47 @@ namespace Urmah
             accountTable.RenderControl(writer);
             writer.RenderEndTag(); //   </div>
 
-
             writer.RenderEndTag(); //   </div>
         }
 
+        private void RenderProfile(HtmlTextWriter writer)
+        {
+            writer.RenderBeginTag(HtmlTextWriterTag.H2);
+            writer.Write(TextResource.UserDetailProfileTitle);
+            writer.RenderEndTag();
+
+            writer.AddAttribute(HtmlTextWriterAttribute.Class, "box profile");
+            writer.RenderBeginTag(HtmlTextWriterTag.Div);
+            
+            try
+            {                
+                ProfileBase profBase = ProfileBase.Create(Username, true);                
+                PropertyInfo[] profileProperties = profBase.GetType().GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
+
+                Table propertyTable = new Table();
+                foreach (PropertyInfo property in profileProperties)
+                {
+                    TableRow row = new TableRow();
+                    
+                    string fieldText = string.Format(TextResource.CaptationFormatString, property.Name);
+                    row.Cells.Add(FormatCell(new TableCell(), fieldText, "field-caption"));
+                    row.Cells.Add(FormatCell(new TableCell(), property.GetValue(profBase, null).ToString(), "field-value"));
+
+                    propertyTable.Rows.Add(row);
+                }
+                propertyTable.RenderControl(writer);
+            }
+            catch (HttpException httpex)
+            {
+                // Problem with the profiles.
+                writer.RenderBeginTag(HtmlTextWriterTag.Em);
+                writer.Write(TextResource.RoleExceptionMessage, httpex.Message);
+                writer.RenderEndTag(); // </em>
+            }
+            writer.RenderEndTag(); // </div>
+
+        }
+        
         private void RenderRoles(HtmlTextWriter writer)
         {
             writer.RenderBeginTag(HtmlTextWriterTag.H2);

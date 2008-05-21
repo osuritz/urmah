@@ -70,6 +70,24 @@ namespace Urmah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}: .
+        /// </summary>
+        internal static string CaptationFormatString {
+            get {
+                return ResourceManager.GetString("CaptationFormatString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        internal static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create new role.
         /// </summary>
         internal static string CreateRole {
@@ -102,6 +120,15 @@ namespace Urmah.Resources {
         internal static string ExistingUsersFormatString {
             get {
                 return ResourceManager.GetString("ExistingUsersFormatString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online users: {1} / {0}.
+        /// </summary>
+        internal static string ExistingUsersOnlineTotalRation {
+            get {
+                return ResourceManager.GetString("ExistingUsersOnlineTotalRation", resourceCulture);
             }
         }
         
@@ -187,6 +214,15 @@ namespace Urmah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Role problem: {0}.
+        /// </summary>
+        internal static string RoleExceptionMessage {
+            get {
+                return ResourceManager.GetString("RoleExceptionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Role management is disabled for this application..
         /// </summary>
         internal static string RoleManagementDisabled {
@@ -205,11 +241,29 @@ namespace Urmah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Details&amp;hellip;.
+        /// </summary>
+        internal static string RolesActionDetail {
+            get {
+                return ResourceManager.GetString("RolesActionDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manage existing roles.
         /// </summary>
         internal static string RolesLinkDescription {
             get {
                 return ResourceManager.GetString("RolesLinkDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} roles found..
+        /// </summary>
+        internal static string RolesPagingStats {
+            get {
+                return ResourceManager.GetString("RolesPagingStats", resourceCulture);
             }
         }
         
@@ -237,6 +291,15 @@ namespace Urmah.Resources {
         internal static string True {
             get {
                 return ResourceManager.GetString("True", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown error.
+        /// </summary>
+        internal static string UnknownError {
+            get {
+                return ResourceManager.GetString("UnknownError", resourceCulture);
             }
         }
         
@@ -277,6 +340,42 @@ namespace Urmah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Basic Information.
+        /// </summary>
+        internal static string UserCreateBasicBoxTitle {
+            get {
+                return ResourceManager.GetString("UserCreateBasicBoxTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Further Information (optional).
+        /// </summary>
+        internal static string UserCreateFurtherBoxTitle {
+            get {
+                return ResourceManager.GetString("UserCreateFurtherBoxTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User account creation failed: {0}.
+        /// </summary>
+        internal static string UserCreationFailureFormatString {
+            get {
+                return ResourceManager.GetString("UserCreationFailureFormatString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User account was successfully created..
+        /// </summary>
+        internal static string UserCreationSuccess {
+            get {
+                return ResourceManager.GetString("UserCreationSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Account Information.
         /// </summary>
         internal static string UserDetailAccountInformationTitle {
@@ -300,6 +399,15 @@ namespace Urmah.Resources {
         internal static string UserDetailAccountIsLockedOutCaption {
             get {
                 return ResourceManager.GetString("UserDetailAccountIsLockedOutCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approved.
+        /// </summary>
+        internal static string UserDetailApprovedCheckboxCaption {
+            get {
+                return ResourceManager.GetString("UserDetailApprovedCheckboxCaption", resourceCulture);
             }
         }
         
@@ -358,6 +466,51 @@ namespace Urmah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password answer:.
+        /// </summary>
+        internal static string UserDetailPasswordAnswerCaption {
+            get {
+                return ResourceManager.GetString("UserDetailPasswordAnswerCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password:.
+        /// </summary>
+        internal static string UserDetailPasswordCaption {
+            get {
+                return ResourceManager.GetString("UserDetailPasswordCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm:.
+        /// </summary>
+        internal static string UserDetailPasswordConfirmCaption {
+            get {
+                return ResourceManager.GetString("UserDetailPasswordConfirmCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password question:.
+        /// </summary>
+        internal static string UserDetailPasswordQuestionCaption {
+            get {
+                return ResourceManager.GetString("UserDetailPasswordQuestionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile.
+        /// </summary>
+        internal static string UserDetailProfileTitle {
+            get {
+                return ResourceManager.GetString("UserDetailProfileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Roles.
         /// </summary>
         internal static string UserDetailRolesTitle {
@@ -376,11 +529,29 @@ namespace Urmah.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unlock.
+        /// </summary>
+        internal static string UserDetailUnlock {
+            get {
+                return ResourceManager.GetString("UserDetailUnlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username:.
         /// </summary>
         internal static string UserDetailUsernameCaption {
             get {
                 return ResourceManager.GetString("UserDetailUsernameCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create User for {0} on {1}.
+        /// </summary>
+        internal static string UserEditTile_CreateFormatString {
+            get {
+                return ResourceManager.GetString("UserEditTile_CreateFormatString", resourceCulture);
             }
         }
         
@@ -453,6 +624,15 @@ namespace Urmah.Resources {
         internal static string Users {
             get {
                 return ResourceManager.GetString("Users", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details&amp;hellip;.
+        /// </summary>
+        internal static string UsersActionDetail {
+            get {
+                return ResourceManager.GetString("UsersActionDetail", resourceCulture);
             }
         }
         

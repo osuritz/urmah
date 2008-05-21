@@ -11,17 +11,10 @@ namespace Urmah
 {
     internal sealed class UserAndRolePage : PageBase
     {
-        //private const int _defaultPageSize = 15;
-        
-        //private int _pageIndex;
-        //private int _pageSize;
-        //private int _totalCount;
-        //private ArrayList _errorEntryList;
-
-        
-        //private const int _maximumPageSize = 100;
         protected override void OnLoad(EventArgs e)
         {
+            PageTitle = TitleString;
+
             base.OnLoad(e);
         }
 
@@ -44,39 +37,6 @@ namespace Urmah
             base.RenderContents(writer);
         }
 
-        private void RenderTitle(HtmlTextWriter writer)
-        {
-            //
-            // If the application name matches the APPL_MD_PATH then its
-            // of the form /LM/W3SVC/.../<name>. In this case, use only the 
-            // <name> part to reduce the noise. The full application name is 
-            // still made available through a tooltip.
-            //
-
-            string simpleName = this.ApplicationName;
-
-            if (string.Compare(simpleName, this.Request.ServerVariables["APPL_MD_PATH"],
-                true, CultureInfo.InvariantCulture) == 0)
-            {
-                int lastSlashIndex = simpleName.LastIndexOf('/');
-
-                if (lastSlashIndex > 0)
-                {
-                    simpleName = simpleName.Substring(lastSlashIndex + 1);
-                }
-            }
-
-            writer.AddAttribute(HtmlTextWriterAttribute.Id, "PageTitle");
-            writer.RenderBeginTag(HtmlTextWriterTag.H1);
-                        
-            writer.Write(TextResource.TitleFormatString, Server.HtmlEncode(simpleName), Server.HtmlEncode(Environment.MachineName));
-            
-            //writer.AddAttribute(HtmlTextWriterAttribute.Title, this.Server.HtmlEncode(this.ApplicationName));
-
-            writer.RenderEndTag(); // </h1>
-            writer.WriteLine();
-        }
-
         private void RenderControlPanel(HtmlTextWriter writer)
         {
             RenderUsersBlock(writer);
@@ -96,7 +56,9 @@ namespace Urmah
             {
                 int userCount;
                 Membership.GetAllUsers(0, 1, out userCount);
-                RenderUsersContent(writer, userCount);
+                int onlineCount = Membership.GetNumberOfUsersOnline();
+                
+                RenderUsersContent(writer, userCount, onlineCount);
             }
             catch (Exception ex)
             {
@@ -106,13 +68,13 @@ namespace Urmah
             writer.RenderEndTag(); // </div>
         }
 
-        private void RenderUsersContent(HtmlTextWriter writer, int userCount)
+        private void RenderUsersContent(HtmlTextWriter writer, int userCount, int onlineCount)
         {
             writer.RenderBeginTag(HtmlTextWriterTag.P);
                         
             writer.AddAttribute(HtmlTextWriterAttribute.Class, "field-caption");
             writer.RenderBeginTag(HtmlTextWriterTag.Span);
-            writer.Write(TextResource.ExistingUsersFormatString, userCount);
+            writer.Write(TextResource.ExistingUsersOnlineTotalRation, userCount, onlineCount);
             writer.RenderEndTag(); // </span>
             
             writer.RenderEndTag(); // </p>
@@ -123,7 +85,7 @@ namespace Urmah
             writer.RenderEndTag(); // </a>
             writer.WriteBreak(); // <br />
 
-            writer.AddAttribute(HtmlTextWriterAttribute.Href, string.Format("{0}/users", BasePageName));
+            writer.AddAttribute(HtmlTextWriterAttribute.Href, string.Format(SpeedBar.Users.Href, BasePageName));
             writer.RenderBeginTag(HtmlTextWriterTag.A);
             writer.Write(TextResource.ManageUsers);
             writer.RenderEndTag(); // </a>
@@ -174,7 +136,7 @@ namespace Urmah
             writer.RenderEndTag(); // </a>
             writer.WriteBreak(); // <br />
 
-            writer.AddAttribute(HtmlTextWriterAttribute.Href, string.Format("{0}/roles/manage", BasePageName));
+            writer.AddAttribute(HtmlTextWriterAttribute.Href, string.Format(SpeedBar.Roles.Href, BasePageName));
             writer.RenderBeginTag(HtmlTextWriterTag.A);
             writer.Write(TextResource.ManageRoles);
             writer.RenderEndTag(); // </a>
