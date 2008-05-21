@@ -35,8 +35,6 @@ h1
     font-size: 175%;
 }
 
-
-
 table
 {
     width: 100%;
@@ -110,6 +108,7 @@ th
 	 border-top-style: none;
 	 margin-top: 10px;
 	 padding: 10px;
+	line-height: 180%;
 }
 
 .control-panel-block h2
@@ -120,11 +119,13 @@ th
     font-size: 120%;
 	margin: -10px -10px 10px -10px;
 	padding: 3px 0 3px 6px;
+	line-height: normal;
 }
 
 .control-panel-block p 
 {
 	margin-top: 0;
+	line-height: normal;
 }
 
 .lockout-col
@@ -155,7 +156,14 @@ img.active
 
 img.locked-out
 {
-	background: transparent url(GenericIcons) no-repeat scroll -60px 0px;
+	background: transparent url(GenericIcons) no-repeat scroll -20px 0px;
+	height: 16px;
+	width: 16px;
+}
+
+img.add
+{
+	background: transparent url(GenericIcons) no-repeat scroll 0px -60px;
 	height: 16px;
 	width: 16px;
 }
@@ -213,4 +221,45 @@ img.locked-out
 .action-bar 
 {
 	padding: 0 0 0 0.4em;
+}
+
+table.form td
+{
+	vertical-align: middle;
+}
+
+.controls 
+{
+	padding : 1em 0 0 0;
+}
+
+.controls img 
+{
+	vertical-align: middle;
+}
+
+.controls .success, .controls .failure
+{
+	margin: 0 0 1em 0;
+	font-weight: bold;
+}
+
+.controls .success
+{
+	color: #006600;
+}
+
+.controls .failure
+{
+	color: Red;	
+}
+
+table#RoleList
+{
+	width: auto;
+}
+
+td.members-col
+{
+	text-align: right;
 }

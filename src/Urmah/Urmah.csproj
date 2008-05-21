@@ -43,6 +43,9 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Build.cs" />
+    <Compile Include="EditUserPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="HtmlLinkType.cs" />
     <Compile Include="HttpModuleBase.cs" />
     <Compile Include="ListingTableBase.cs">
@@ -59,7 +62,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="RolesBrowserPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RolePageFactory.cs" />
     <Compile Include="SpeedBar.cs" />
+    <Compile Include="UserActions.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="UserAndRoleModule.cs" />
     <Compile Include="UserAndRolePage.cs">
       <SubType>ASPXCodeBehind</SubType>

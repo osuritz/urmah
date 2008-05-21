@@ -29,7 +29,40 @@ namespace Urmah
                 return InferApplicationName(Context);
             }
         }
-        
+
+        protected virtual string ContentTitleFormatString
+        {
+            get { return Urmah.Resources.Resource.TitleFormatString; }
+        }
+
+        protected virtual string TitleString
+        {
+            get
+            {
+                //
+                // If the application name matches the APPL_MD_PATH then its
+                // of the form /LM/W3SVC/.../<name>. In this case, use only the 
+                // <name> part to reduce the noise. The full application name is 
+                // still made available through a tooltip.
+                //
+
+                string simpleName = this.ApplicationName;
+
+                if (string.Compare(simpleName, this.Request.ServerVariables["APPL_MD_PATH"],
+                    true, CultureInfo.InvariantCulture) == 0)
+                {
+                    int lastSlashIndex = simpleName.LastIndexOf('/');
+
+                    if (lastSlashIndex > 0)
+                    {
+                        simpleName = simpleName.Substring(lastSlashIndex + 1);
+                    }
+                }
+
+                return string.Format(ContentTitleFormatString, simpleName, Environment.MachineName);
+            }
+        }
+
         protected virtual void RenderDocumentStart(HtmlTextWriter writer)
         {
             if (writer == null)
@@ -117,6 +150,18 @@ namespace Urmah
             RenderDocumentEnd(writer);
         }
 
+        
+        protected virtual void RenderTitle(HtmlTextWriter writer)
+        {
+
+            writer.AddAttribute(HtmlTextWriterAttribute.Id, "PageTitle");
+            writer.RenderBeginTag(HtmlTextWriterTag.H1);
+
+            writer.Write(Server.HtmlEncode(TitleString));
+
+            writer.RenderEndTag(); // </h1>
+            writer.WriteLine();
+        }
 
         #region Utility Methods
         protected TableCell FormatCell(TableCell cell, string contents, string cssClassName)
@@ -157,6 +202,34 @@ namespace Urmah
 
             return cell;
         }
+
+        protected TableRow AddFieldRow(HtmlTextWriter writer, Table table, string caption, Control control)
+        {
+            TableRow row = new TableRow();
+            row.Cells.Add(FormatCell(new TableCell(), caption, "field-caption"));
+            
+            TableCell cell = new TableCell();
+            cell.Controls.Add(control);
+            row.Cells.Add(cell);
+            
+            table.Rows.Add(row);
+
+            return row;
+        }
+
+        protected TableRow AddFieldRow(HtmlTextWriter writer, Table table, Control control, int columnSpan)
+        {
+            TableRow row = new TableRow();
+
+            TableCell cell = new TableCell() { ColumnSpan = columnSpan };
+            cell.Controls.Add(control);
+            row.Cells.Add(cell);
+
+            table.Rows.Add(row);
+
+            return row;
+        }
+
 
         protected string GetUrl(string path)
         {
@@ -230,6 +303,31 @@ namespace Urmah
 
             return (string.IsNullOrEmpty(appName) ? "/" : appName);
 #endif
+        }
+
+        protected Image GetSpriteImage(string name, string tooltip)
+        {
+            Image img = new Image() { ImageUrl = GetUrl("/cleardot"), CssClass = name };
+
+            if (!string.IsNullOrEmpty(tooltip))
+            {
+                img.ToolTip = tooltip;
+            }
+
+            return img;
+        }
+
+        protected Image GetSpriteImage(string name)
+        {
+            return GetSpriteImage(name, null);
+        }
+
+        protected static void RenderTag(HtmlTextWriter writer, HtmlTextWriterTag tag, string content)
+        {
+            writer.RenderBeginTag(tag);
+            writer.Write(content);
+            writer.RenderEndTag();
+
         }
 
         #endregion

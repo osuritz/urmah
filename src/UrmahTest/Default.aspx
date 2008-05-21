@@ -8,6 +8,7 @@
 <body>
     <form id="form1" runat="server">        
         <div>
+            <a href="Urmah.ashx">Start URMAH</a>
         </div>
     </form>
 </body>

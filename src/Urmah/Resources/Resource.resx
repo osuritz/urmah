@@ -272,4 +272,69 @@
   <data name="UserInRoleDelete" xml:space="preserve">
     <value>Remove</value>
   </data>
+  <data name="CaptationFormatString" xml:space="preserve">
+    <value>{0}: </value>
+  </data>
+  <data name="RoleExceptionMessage" xml:space="preserve">
+    <value>Role problem: {0}</value>
+    <comment>(0} = description of the problem</comment>
+  </data>
+  <data name="UserDetailProfileTitle" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="UserDetailUnlock" xml:space="preserve">
+    <value>Unlock</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="UserCreationFailureFormatString" xml:space="preserve">
+    <value>User account creation failed: {0}</value>
+  </data>
+  <data name="UserCreationSuccess" xml:space="preserve">
+    <value>User account was successfully created.</value>
+  </data>
+  <data name="UserDetailApprovedCheckboxCaption" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="UserDetailPasswordAnswerCaption" xml:space="preserve">
+    <value>Password answer:</value>
+    <comment>(0} = description of the problem</comment>
+  </data>
+  <data name="UserDetailPasswordCaption" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="UserDetailPasswordConfirmCaption" xml:space="preserve">
+    <value>Confirm:</value>
+  </data>
+  <data name="UserDetailPasswordQuestionCaption" xml:space="preserve">
+    <value>Password question:</value>
+  </data>
+  <data name="UserEditTile_CreateFormatString" xml:space="preserve">
+    <value>Create User for {0} on {1}</value>
+    <comment>{0} = Application Name, {1} = Server Name</comment>
+  </data>
+  <data name="UserCreateBasicBoxTitle" xml:space="preserve">
+    <value>Basic Information</value>
+  </data>
+  <data name="UserCreateFurtherBoxTitle" xml:space="preserve">
+    <value>Further Information (optional)</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>Unknown error</value>
+  </data>
+  <data name="ExistingUsersOnlineTotalRation" xml:space="preserve">
+    <value>Online users: {1} / {0}</value>
+    <comment>{0} = Number of users, {1} = Number of online users</comment>
+  </data>
+  <data name="RolesActionDetail" xml:space="preserve">
+    <value>Details&amp;hellip;</value>
+  </data>
+  <data name="RolesPagingStats" xml:space="preserve">
+    <value>{0} roles found.</value>
+    <comment>{0} Number of roles</comment>
+  </data>
+  <data name="UsersActionDetail" xml:space="preserve">
+    <value>Details&amp;hellip;</value>
+  </data>
 </root>

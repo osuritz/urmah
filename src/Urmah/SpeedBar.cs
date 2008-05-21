@@ -10,7 +10,7 @@ namespace Urmah
     {
         public static readonly ItemTemplate Home = new ItemTemplate() { Text = "Dashboard", Title = "Main Control Panel", Href = "{0}" };
         public static readonly ItemTemplate Users = new ItemTemplate() { Text = TextResource.UsersTitle, Title = TextResource.UsersLinkDescription, Href = "{0}/users" };
-        public static readonly ItemTemplate Roles = new ItemTemplate() { Text = TextResource.RolesTitle, Title = TextResource.RolesLinkDescription, Href = "{0}/roles/manage" };
+        public static readonly ItemTemplate Roles = new ItemTemplate() { Text = TextResource.RolesTitle, Title = TextResource.RolesLinkDescription, Href = "{0}/roles" };
         public static readonly FormattedItem Help = new FormattedItem() { Text = "Help", Title = "Documentation, discussions, issues and more", Href = "http://urmah.googlecode.com/" };
         public static readonly ItemTemplate About = new ItemTemplate() { Text = "About", Title = "Information about this version and build", Href = "{0}/about" };
 

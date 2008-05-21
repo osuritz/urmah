@@ -13,10 +13,6 @@ namespace Urmah
 {
     internal sealed class UsersBrowserPage : ListingTableBase
     {
-
-        //private int _pageIndex;
-        //private int _pageSize;
-        //private int _totalCount;
         private MembershipUserCollection _userList;
 
         private string SearchName
@@ -27,19 +23,15 @@ namespace Urmah
             }
         }
 
+        protected override string ContentTitleFormatString
+        {
+            get { return TextResource.UserBrowserTitleFormatString; }
+        }
+
         protected override void OnLoad(EventArgs e)
         {
-            //int.TryParse(this.Request.QueryString["size"], System.Globalization.NumberStyles.Integer, CultureInfo.InvariantCulture, out _pageSize);
-            //_pageSize = Math.Min(MaximumPageSize, Math.Max(0, _pageSize));
+            PageTitle = TitleString;
             
-            //if (_pageSize == 0)
-            //{
-            //    _pageSize = DefaultPageSize;
-            //}
-
-            //_pageIndex = Convert.ToInt32(this.Request.QueryString["page"], CultureInfo.InvariantCulture);
-            //_pageIndex = Math.Max(1, _pageIndex) - 1;
-
             int totalCount;
             
             // Read the user records.
@@ -54,40 +46,7 @@ namespace Urmah
             TotalCount = totalCount;
                                     
             base.OnLoad(e);
-        }
-        
-        private void RenderTitle(HtmlTextWriter writer)
-        {
-            //
-            // If the application name matches the APPL_MD_PATH then its
-            // of the form /LM/W3SVC/.../<name>. In this case, use only the 
-            // <name> part to reduce the noise. The full application name is 
-            // still made available through a tooltip.
-            //
-
-            string simpleName = this.ApplicationName;
-
-            if (string.Compare(simpleName, this.Request.ServerVariables["APPL_MD_PATH"],
-                true, CultureInfo.InvariantCulture) == 0)
-            {
-                int lastSlashIndex = simpleName.LastIndexOf('/');
-
-                if (lastSlashIndex > 0)
-                {
-                    simpleName = simpleName.Substring(lastSlashIndex + 1);
-                }
-            }
-
-            writer.AddAttribute(HtmlTextWriterAttribute.Id, "PageTitle");
-            writer.RenderBeginTag(HtmlTextWriterTag.H1);
-
-            writer.Write(TextResource.UserBrowserTitleFormatString, Server.HtmlEncode(simpleName), Server.HtmlEncode(Environment.MachineName));
-
-            //writer.AddAttribute(HtmlTextWriterAttribute.Title, this.Server.HtmlEncode(this.ApplicationName));
-
-            writer.RenderEndTag(); // </h1>
-            writer.WriteLine();
-        }
+        }               
 
         protected override void RenderContents(HtmlTextWriter writer)
         {
@@ -129,6 +88,8 @@ namespace Urmah
                 // No users found in the data store, so display a corresponding message.
                 RenderNoUsers(writer);
             }
+
+            RenderControls(writer);
                        
             base.RenderContents(writer);
         }
@@ -226,9 +187,8 @@ namespace Urmah
 
                 // Action cell
                 cell = new TableCell();
-                HyperLink detailsLink = new HyperLink();
-                detailsLink.NavigateUrl = this.Request.Path + "/detail?id=" + user.UserName;
-                detailsLink.Text = "Details&hellip;";
+                HyperLink detailsLink = new HyperLink() { Text = TextResource.UsersActionDetail };
+                detailsLink.NavigateUrl = string.Format("{0}/detail?id={1}", this.Request.Path, user.UserName);
                 cell.Controls.Add(detailsLink);
                 
                 bodyRow.Cells.Add(cell);
@@ -298,6 +258,21 @@ namespace Urmah
         private void RenderNoUsers(HtmlTextWriter writer)
         {
 
+        }
+
+        private void RenderControls(HtmlTextWriter writer)
+        {
+            writer.AddAttribute(HtmlTextWriterAttribute.Class, "controls");
+            writer.RenderBeginTag(HtmlTextWriterTag.Div);
+
+            Image img = GetSpriteImage("add");
+            img.RenderControl(writer);
+
+            HyperLink addRoleLink = new HyperLink() { Text = TextResource.CreateUser };
+            addRoleLink.NavigateUrl = string.Format("{0}/create", this.Request.Path);
+            addRoleLink.RenderControl(writer);
+
+            writer.RenderEndTag(); // </div>
         }
     }
 }
